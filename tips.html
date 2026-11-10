@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tips y Consejos de Cocina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    /* GENERAL */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fafafa;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: #6a0dad;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: white;
+      transition: 0.3s;
+    }
+
+    .nav-links li a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #6a0dad;
+        display: none;
+        padding: 10px 0;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+      }
+    }
+
+    /* HEADER */
+    header.main-header {
+      background: #f3e8ff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    header.main-header h1 {
+      font-family: 'Pacifico', cursive;
+      color: #6a0dad;
+      font-size: 3.5rem;
+      margin: 0;
+    }
+    header.main-header p {
+      font-size: 1.3rem;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    /* TIPS - tarjetas creativas */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      color: #6a0dad;
+      border-bottom: 3px solid #6a0dad;
+      display: inline-block;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+      font-family: 'Pacifico', cursive;
+    }
+
+    .tip-category {
+      margin-bottom: 50px;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .tip-card {
+      background: #fff;
+      border-left: 6px solid #6a0dad;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 15px rgba(106,0,173,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(106,0,173,0.3);
+    }
+
+    .tip-card .icon {
+      font-size: 2rem;
+      color: #6a0dad;
+    }
+
+    .tip-card p {
+      margin: 0;
+      font-weight: 500;
+      color: #333;
+    }
+
+    /* TIP DESTACADO */
+    .tip {
+      margin-top: 20px;
+      padding: 20px;
+      background: #6a0dad;
+      color: white;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #f3e8ff;
+      color: #6a0dad;
+      font-weight: bold;
+    }
+  </style>
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">🍴 CocinArte</div>
+  <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="recetas.html">Recetas</a></li>
+    <li><a href="tips.html">Tips</a></li>
+    <li><a href="datos.html">Datos curiosos</a></li>
+    <li><a href="precios.html">Productos-Precios</a></li>
+   
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header class="main-header">
+  <h1>Tips Creativos de Cocina</h1>
+  <p>Trucos y secretos para que tus recetas sean irresistibles</p>
+</header>
+
+<div class="container">
+  <!-- PIZZAS -->
+  <div class="tip-category" id="pizzas">
+    <h2>Pizzas</h2>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="icon">🍕</div><p>No dejes que la sal toque la levadura al preparar la masa.</p></div>
+      <div class="tip-card"><div class="icon">🔥</div><p>Para pizza crujiente, hornea la base 3-5 minutos antes de poner ingredientes.</p></div>
+      <div class="tip-card"><div class="icon">💪</div><p>Masa perfecta: amasa bien y deja reposar hasta que doble su tamaño.</p></div>
+      <div class="tip-card"><div class="icon">🌾</div><p>Usa harina de fuerza para una masa más elástica y manejable.</p></div>
+      <div class="tip-card"><div class="icon">🫒</div><p>Pincela los bordes con aceite de oliva para dorarlos mejor.</p></div>
+    </div>
+  </div>
+
+  <!-- POSTRES -->
+  <div class="tip-category" id="postres">
+    <h2>Postres</h2>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="icon">⚖️</div><p>Pesa siempre los ingredientes secos para resultados perfectos.</p></div>
+      <div class="tip-card"><div class="icon">⏱️</div><p>No abras el horno durante los primeros 15 minutos de horneado.</p></div>
+      <div class="tip-card"><div class="icon">🍫</div><p>Para chocolate brillante, mezcla con mantequilla en lugar de aceite.</p></div>
+      <div class="tip-card"><div class="icon">🥚</div><p>Claras a temperatura ambiente para picos firmes y estables.</p></div>
+      <div class="tip-card"><div class="icon">🧂</div><p>Una pizca de sal realza los sabores dulces.</p></div>
+    </div>
+  </div>
+
+  <!-- COMIDA TÍPICA -->
+  <div class="tip-category" id="tipica">
+    <h2>Comida Típica</h2>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="icon">🥗</div><p>Usa ingredientes frescos y de temporada.</p></div>
+      <div class="tip-card"><div class="icon">🍖</div><p>Marina carnes y aves al menos 30 minutos antes.</p></div>
+      <div class="tip-card"><div class="icon">🔥</div><p>Fuego alto para sellar, bajo para cocción lenta.</p></div>
+      <div class="tip-card"><div class="icon">🥘</div><p>Deja reposar sopas y guisos antes de servir.</p></div>
+      <div class="tip-card"><div class="icon">🌿</div><p>Hierbas frescas al final de la cocción para mejor aroma.</p></div>
+    </div>
+  </div>
+
+  <!-- PAN DULCE -->
+  <div class="tip-category" id="pandulce">
+    <h2>Pan Dulce</h2>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="icon">🥛</div><p>Los líquidos deben estar tibios, nunca calientes.</p></div>
+      <div class="tip-card"><div class="icon">🤲</div><p>Amasa hasta que la masa esté suave y elástica.</p></div>
+      <div class="tip-card"><div class="icon">⏳</div><p>Deja reposar la masa hasta que doble su tamaño.</p></div>
+      <div class="tip-card"><div class="icon">🍯</div><p>Glaseado perfecto: mezcla azúcar glass con jugo o leche.</p></div>
+      <div class="tip-card"><div class="icon">🔥</div><p>Hornear en horno precalentado asegura cocción uniforme.</p></div>
+    </div>
+  </div>
+
+  <div class="tip">💡 Tip: Siempre mide tus ingredientes y respeta los tiempos de reposo para mejores resultados.</div>
+</div>
+
+<footer>
+  &copy; 2025 CocinArte | Todos los derechos reservados
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('show');
+}
+</script>
+
+</body>
+</html>

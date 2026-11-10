@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datos Curiosos de Cocina</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* GENERAL */
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #fafafa;
+    color: #333;
+    scroll-behavior: smooth;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    background: #6a0dad;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+    transition: 0.3s;
+  }
+
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+  }
+
+  @media (max-width:768px){
+    .nav-links {
+      flex-direction: column;
+      position: absolute;
+      top:60px;
+      left:0;
+      width:100%;
+      background-color:#6a0dad;
+      display:none;
+      padding:10px 0;
+    }
+    .nav-links.show { display:flex; }
+    .menu-toggle { display:block; }
+    .nav-links li { margin:10px 0; text-align:center;}
+  }
+
+  /* HEADER */
+  header.main-header {
+    text-align:center;
+    background: #f3e8ff;
+    padding:60px 20px;
+    color:#6a0dad;
+  }
+  header.main-header h1 {
+    font-family:'Roboto Slab', serif;
+    font-size:3.5rem;
+    margin:0;
+    color:#6a0dad;
+    text-shadow: 2px 2px 5px rgba(106,0,173,0.3);
+  }
+  header.main-header p {
+    font-size:1.3rem;
+    margin-top:10px;
+  }
+
+  /* DATOS CURIOSOS */
+  .container {
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 20px;
+  }
+
+  .curious-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+  }
+
+  .curious-card {
+    background: #f3e8ff;
+    border-radius:25px;
+    padding:25px 20px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    box-shadow:0 6px 15px rgba(106,0,173,0.2);
+    transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+  }
+
+  .curious-card:hover {
+    transform: translateY(-12px) rotate(-1deg);
+    box-shadow:0 12px 25px rgba(106,0,173,0.3);
+    background: linear-gradient(135deg,#6a0dad,#d580ff);
+    color:white;
+  }
+
+  .curious-card .icon {
+    font-size:3rem;
+    margin-bottom:15px;
+    transition: transform 0.4s;
+  }
+
+  .curious-card:hover .icon {
+    transform: rotate(20deg) scale(1.2);
+  }
+
+  .curious-card p {
+    font-weight:500;
+    font-size:1.05rem;
+    line-height:1.5;
+    margin:0;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align:center;
+    padding:30px;
+    background:#f3e8ff;
+    color:#6a0dad;
+    font-weight:bold;
+  }
+</style>
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">🍴 CocinArte</div>
+  <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="recetas.html">Recetas</a></li>
+    <li><a href="tips.html">Tips</a></li>
+    <li><a href="datos.html">Datos curiosos</a></li>
+    <li><a href="#">Productos-Precios</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header class="main-header">
+  <h1>Datos Curiosos de Cocina</h1>
+  <p>¡Sorpréndete con secretos culinarios que no conocías! 🍽️</p>
+</header>
+
+<div class="container">
+  <div class="curious-grid">
+    <div class="curious-card"><div class="icon">🍌</div><p>Los plátanos son ligeramente radioactivos por el potasio-40 que contienen.</p></div>
+    <div class="curious-card"><div class="icon">🍫</div><p>Los mayas usaban los granos de cacao como moneda.</p></div>
+    <div class="curious-card"><div class="icon">🥚</div><p>Un huevo fresco se hunde en agua; uno viejo flota.</p></div>
+    <div class="curious-card"><div class="icon">🍕</div><p>La pizza más cara cuesta más de $12,000 e incluye oro comestible y trufa blanca.</p></div>
+    <div class="curious-card"><div class="icon">🍯</div><p>La miel nunca se echa a perder, incluso después de miles de años.</p></div>
+    <div class="curious-card"><div class="icon">🥔</div><p>Las papas verdes producen solanina, un compuesto tóxico que hay que evitar.</p></div>
+    <div class="curious-card"><div class="icon">🌶️</div><p>El chile Carolina Reaper es tan picante que puede causar dolor intenso al contacto.</p></div>
+    <div class="curious-card"><div class="icon">🍋</div><p>Los limones flotan en agua, pero las limas no siempre.</p></div>
+    <div class="curious-card"><div class="icon">🥖</div><p>La masa madre puede durar años si se mantiene correctamente.</p></div>
+    <div class="curious-card"><div class="icon">🥗</div><p>Algunos alimentos azules son raros y muchas personas no los consumen por su color extraño.</p></div>
+    <div class="curious-card"><div class="icon">🧂</div><p>Una pizca de sal puede realzar el sabor de cualquier plato dulce o salado.</p></div>
+    <div class="curious-card"><div class="icon">🫒</div><p>El aceite de oliva se usaba antiguamente como medicina y cosmético.</p></div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 CocinArte | Todos los derechos reservados
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('show');
+}
+</script>
+
+</body>
+</html>

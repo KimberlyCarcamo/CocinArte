@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredientes del Campo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* General */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #6a0dad;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links li a { color: white; text-decoration: none; font-weight: 500; position: relative; }
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: white;
+            transition: 0.3s;
+        }
+        .nav-links li a:hover::after { width: 100%; }
+
+        /* Header principal */
+        .main-header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(to right, #f3e8ff, #e0c3fc);
+        }
+        .main-header h1 {
+            font-size: 3rem;
+            color: #6a0dad;
+            margin-bottom: 10px;
+        }
+        .main-header p {
+            font-size: 1.3rem;
+            color: #4b0082;
+        }
+
+        /* Productos */
+        main {
+            padding: 20px 40px;
+        }
+        h2 {
+            text-align: center;
+            color: #6a0dad;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-card h3 {
+            color: #4b0082;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        .product-card p {
+            color: #555;
+            font-size: 0.95rem;
+            margin: 5px 0;
+        }
+        .product-card .price {
+            color: #e74c3c;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .product-card .promotion {
+            background: #6a0dad;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #6a0dad;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px){
+            .navbar { flex-direction: column; gap: 10px; }
+            main { padding: 20px; }
+            .main-header h1 { font-size: 2.5rem; }
+            .main-header p { font-size: 1.1rem; }
+        }
+    </style>
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">🍴 CocinArte</div>
+        <ul class="nav-links">
+            <li><a href="recetas.html">Recetas</a></li>
+            <li><a href="tips.html">Tips</a></li>
+            <li><a href="datos.html">Datos curiosos</a></li>
+            <li><a href="precios.html">Productos-Precios</a></li>
+        </ul>
+    </nav>
+
+    <!-- HEADER PRINCIPAL -->
+    <header class="main-header">
+        <h1>🛒 Ingredientes del Campo</h1>
+        <p>Compra los mejores ingredientes frescos y de calidad</p>
+    </header>
+
+    <!-- PRODUCTOS -->
+    <main>
+        <h2>Productos Disponibles</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="assets/productos/azucar.webp" alt="Azúcar Blanca 0.5 kg">
+                <h3>Azúcar Blanca 0.5 kg</h3>
+                <p>Súper Selectos</p>
+                <p class="price">$0.53</p>
+                <p class="promotion">¡Promoción!</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/productos/huevos.webp" alt="Huevo Selectos Mediano Rojo 30 unidades">
+                <h3>Huevo Selectos Mediano Rojo 30 unidades</h3>
+                <p>Súper Selectos</p>
+                <p class="price">$4.50</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/productos/peperoni.webp" alt="Peperoni Dany 454 g">
+                <h3>Peperoni Dany 454 g</h3>
+                <p>Súper Selectos</p>
+                <p class="price">$4.79</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/productos/aceite.jpeg" alt="Aceite de Oliva Extra Virgen Bonoli 1000 mL">
+                <h3>Aceite de Oliva Extra Virgen Bonoli 1000 mL</h3>
+                <p>Súper Selectos</p>
+                <p class="price">$11.02</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/pan-indio.jpg" alt="Ajonjolí Badia 42.6 g">
+                <h3>Ajonjolí Badia 42.6 g</h3>
+                <p>Súper Selectos</p>
+                <p class="price">$0.91</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/productos/azucar.webp" alt="Canela McCormick Molida 25 g">
+                <h3>Canela McCormick Molida 25 g</h3>
+                <p>Súper Selectos</p>
+                <p class="price">$1.57</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/productos/azucar.webp" alt="Polvo para Hornear Clabber Girl 230 g">
+                <h3>Polvo para Hornear Clabber Girl 230 g</h3>
+                <p>Súper Selectos</p>
+                <p class="price">$3.50</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/productos/aceite.jpeg" alt="Mantequilla Láctea 454 g">
+                <h3>Mantequilla Láctea 454 g</h3>
+                <p>Súper Selectos</p>
+                <p class="price">$4.99</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/productos/aceite.jpeg" alt="Vainilla Blanca 250 mL">
+                <h3>Vainilla Blanca 250 mL</h3>
+                <p>Súper Selectos</p>
+                <p class="price">$2.50</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/productos/aceite.jpeg" alt="Queso Crema Philadelphia 227 g">
+                <h3>Queso Crema Philadelphia 227 g</h3>
